@@ -11,13 +11,15 @@ export function PreRegForm() {
     lastName: "",
     email: ""
   })
+  const [isOpen, setIsOpen] = useState(false)
   const handleSubmit = async () => {
     await fetch("/api", {
       method: "POST", body: JSON.stringify(formData)
     })
+    setIsOpen(false)
   };
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={() => setIsOpen(prev => !prev)}>
       <DialogTrigger asChild>
         <Button className="scale-75 text-[2rem] text-black dark:text-white hover:bg-transparent dark:border-white w-fit h-fit cursor-pointer scroll-m-20 pb-2 font-semibold tracking-tight border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[5px_5px_0px_0px_rgba(255,255,255)] px-4 py-2 hover:shadow transition duration-200 bg-transparent flex-shrink-0">Pre Register</Button>
       </DialogTrigger>
@@ -61,9 +63,8 @@ export function PreRegForm() {
             }
           })
         }} />
-        <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
         <DialogFooter>
-          <Button type="submit" onClick={handleSubmit}>Save changes</Button>
+          <Button type="submit" onClick={handleSubmit}>Register</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
