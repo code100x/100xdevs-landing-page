@@ -2,6 +2,7 @@ import * as React from "react"
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@repo/ui/components/ui/button";
+import { PreRegForm } from "./pre-register-form";
 
 export function CourseCard({ course }: { course: any }) {
   return (
@@ -18,9 +19,14 @@ export function CourseCard({ course }: { course: any }) {
         className="full inset-0 rounded-2xl flex justify-evenly mt-5 h-full">
         {
           course.links.map((link: any) => {
+            if (link.name === "Pre Register") {
+              return (
+                <PreRegForm />
+              )
+            }
             return (
               <Link href={link.url} className="scale-75">
-                <Button className="w-fit h-fit dark:bg-transparent cursor-pointer scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0 mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0">
+                <Button className="hover:bg-transparent text-black w-fit h-fit dark:bg-transparent cursor-pointer scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0 mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0">
                   <span className="text-[2rem]">{link.name}</span>
                 </Button>
               </Link>

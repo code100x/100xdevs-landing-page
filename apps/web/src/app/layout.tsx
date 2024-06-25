@@ -1,4 +1,5 @@
 import { cn } from "@repo/ui/utils";
+import "@repo/ui/globals"
 import "./globals.css";
 
 import type { Metadata } from "next";
@@ -31,7 +32,7 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
