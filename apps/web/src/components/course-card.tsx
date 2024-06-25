@@ -16,7 +16,7 @@ export function CourseCard({ course }: { course: any }) {
         draggable={false}
       />
       <div
-        className="full inset-0 rounded-2xl flex justify-evenly mt-5 h-full">
+        className="full inset-0 rounded-2xl flex justify-evenly mt-5 h-full items-center">
         {
           course.links.map((link: any) => {
             if (link.name === "Pre Register") {
