@@ -14,9 +14,7 @@ export function PreRegForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await fetch("/api", {
-      method: "POST", body: {
-        ...formData
-      }
+      method: "POST", body: JSON.stringify(formData)
     })
   };
   return (
