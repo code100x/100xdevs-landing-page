@@ -63,7 +63,7 @@ export function PreRegForm() {
         }} />
         <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
         <DialogFooter>
-          <Button type="submit" onClick={() => await handleSubmit()}>Save changes</Button>
+          <Button type="submit" onClick={handleSubmit}>Save changes</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
