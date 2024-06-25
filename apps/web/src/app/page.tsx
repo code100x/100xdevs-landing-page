@@ -1,8 +1,5 @@
 import { CourseCard } from "../components/course-card";
-import { MacbookScroll } from "../components/macbook-scroll";
 import { PreRegForm } from "../components/pre-register-form";
-
-import { Spotlight } from "../components/spotlight";
 
 export default function Page(): JSX.Element {
   const courses = [{
@@ -56,43 +53,37 @@ export default function Page(): JSX.Element {
   }
   ]
   return (
-    <div>
-      <div className="dark:bg-black bg-white  dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex flex-col items-center justify-center">
-        {/* Radial gradient for the container to give a faded look */}
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-        <div className="h-[40rem] w-full rounded-md flex md:items-center md:justify-center relative overflow-hidden">
-          <Spotlight
-            className="top-40 left-0 md:left-60 md:-top-20"
-            fill="white"
-          />
-          <div className="p-4 max-w-7xl  mx-auto relative z-10  w-full pt-[20rem] md:pt-[20rem] scale-90">
-            <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 pb-4">
-              100xDevs<br /> because 10x ain't enough!
-            </h1>
-            <p className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto">
-              A Beginner-Friendly Platform for Mastering Programming Skills and Unleashing Your Inner Developer Genius! Start Learning Today and Transform into a Tech Pro Tomorrow!
-            </p>
-          </div>
-        </div>
-        <div className="scale-125">
-          <MacbookScroll
-            title={
-              <div></div>}
+    <div className="bg-white relative flex flex-col items-center justify-center mt-6">
+      <section className="w-full p-8 flex flex-col justify-center items-center dark:bg-gray-800">
+        <video width="1250" height="240" controls preload="none" className="rounded-2xl bg-black p-1 mt-[1rem] m-4 drop-shadow-xl" autoPlay muted>
+          <source src="test.mp4" type="video/mp4" />
+          <track
             src={`https://appx-wsb-gcp.akamai.net.in/teachcode/admin/COURSE/cover/1699610005757WhatsApp-Image-2023-11-10-at-3.16.18-PM.jpeg`}
-            showGradient={false}
+            kind="subtitles"
+            srcLang="en"
+            label="English"
           />
-        </div>
-        <div className="grid grid-cols-2 w-screen mt-[30rem]">
-          <h1 className="text-[4rem] font-semibold text-black dark:text-white col-span-2 text-center">The Most Awaited Cohort!</h1>
-          {courses.map(course => course.status === "Upcoming" ? (<CourseCard course={course} />) : null)}
-        </div>
-        <div className="grid grid-cols-2 w-screen mt-0">
-          <PreRegForm />
-          <div className="grid grid-cols-2 w-screen">
-            {courses.map(course => course.status !== "Upcoming" ? (<CourseCard course={course} />) : null)}
+          Your browser does not support the video tag.
+        </video>
+        <h2 className="w-fit bg-transparent cursor-pointer scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0 mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0">
+          The Most Awaited Cohort!
+        </h2>
+      </section>
+
+      <section className="w-full p-8 flex flex-col justify-center items-center bg-gray-100 dark:bg-gray-900">
+        <div className="grid grid-cols-2 w-screen mt-[3rem]">
+          <h1 className="text-[3rem] text-black font-bold dark:text-white col-span-2 text-center">Upcoming Cohorts</h1>
+          <div className="flex w-screen justify-evenly py-8">
+            {courses.map(course => course.status === "Upcoming" ? (<CourseCard course={course} />) : null)}
           </div>
         </div>
-      </div>
-    </div >
+      </section>
+      <section className="w-full p-8 flex flex-col justify-center items-center dark:bg-gray-800">
+        <h1 className="text-[3rem] text-black font-bold dark:text-white col-span-2 text-center">Available Cohorts</h1>
+        <div className="flex w-screen justify-evenly py-8">
+          {courses.map(course => course.status !== "Upcoming" ? (<CourseCard course={course} />) : null)}
+        </div>
+      </section>
+    </div>
   );
 }

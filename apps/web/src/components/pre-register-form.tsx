@@ -3,11 +3,6 @@ import React from "react";
 import { Label } from "./label";
 import { Input } from "./input";
 import { cn } from "@repo/ui/utils";
-import {
-  IconBrandGithub,
-  IconBrandGoogle,
-  IconBrandOnlyfans,
-} from "@tabler/icons-react";
 
 export function PreRegForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -15,7 +10,7 @@ export function PreRegForm() {
     console.log("Form submitted");
   };
   return (
-    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black absolute right-[50%] left-[50%] translate-x-[-50%] translate-y-[-35%] align-middle">
+    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black align-middle">
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
         Pre Register
       </h2>
