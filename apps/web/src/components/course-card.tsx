@@ -6,13 +6,13 @@ import { PreRegForm } from "./pre-register-form";
 
 export function CourseCard({ course }: { course: any }) {
   return (
-    <div className="flex flex-col relative">
+    <div className="flex flex-col relative mr-4 ml-7">
       <Image
         src={course.thumbnail}
         alt={course.title}
         width={720}
         height={0}
-        className="mx-auto rounded-2xl object-cover h-full object-left-top drop-shadow-xl hover:scale-[102%] transition-all cursor-pointer"
+        className="mx-auto rounded-2xl object-cover h-full object-left-top drop-shadow-xl hover:scale-[102%] transition-all cursor-pointer border  border-white"
         draggable={false}
       />
       <div

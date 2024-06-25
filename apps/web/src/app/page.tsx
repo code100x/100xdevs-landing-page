@@ -73,7 +73,7 @@ export default function Page(): JSX.Element {
       <section className="w-full p-8 flex flex-col justify-center items-center bg-gray-100 dark:bg-gray-900">
         <div className="grid grid-cols-2 w-screen mt-[3rem]">
           <h1 className="text-[3rem] text-black font-bold dark:text-white col-span-2 text-center">Upcoming Cohorts</h1>
-          <div className="flex w-screen justify-evenly py-8">
+          <div className="flex w-screen justify-evenly py-8 px-4">
             {courses.map(course => course.status === "Upcoming" ? (<CourseCard course={course} />) : null)}
           </div>
         </div>
