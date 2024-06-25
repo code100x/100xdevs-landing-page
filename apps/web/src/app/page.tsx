@@ -55,7 +55,7 @@ export default function Page(): JSX.Element {
   return (
     <div className="bg-white relative flex flex-col items-center justify-center mt-6">
       <section className="w-full p-8 flex flex-col justify-center items-center dark:bg-gray-800">
-        <video width="1250" height="240" controls preload="none" className="rounded-2xl bg-black p-1 mt-[1rem] m-4 drop-shadow-xl" autoPlay muted>
+        <video width="1250" height="240" controls preload="none" className="rounded-2xl bg-black p-1 mt-[1rem] m-4 drop-shadow-xl mt-10" autoPlay muted>
           <source src="test.mp4" type="video/mp4" />
           <track
             src={`https://appx-wsb-gcp.akamai.net.in/teachcode/admin/COURSE/cover/1699610005757WhatsApp-Image-2023-11-10-at-3.16.18-PM.jpeg`}
