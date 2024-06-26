@@ -54,36 +54,38 @@ export default function Page(): JSX.Element {
   ]
   return (
     <div className="bg-white relative flex flex-col items-center justify-center mt-6">
-      <section className="w-full p-8 flex flex-col justify-center items-center dark:bg-gray-800">
-        <video width="1250" height="240" controls preload="none" className="rounded-2xl bg-black p-1 mt-[1rem] m-4 drop-shadow-xl" autoPlay muted>
-          <source src="test.mp4" type="video/mp4" />
-          <track
-            src={`https://appx-wsb-gcp.akamai.net.in/teachcode/admin/COURSE/cover/1699610005757WhatsApp-Image-2023-11-10-at-3.16.18-PM.jpeg`}
-            kind="subtitles"
-            srcLang="en"
-            label="English"
-          />
-          Your browser does not support the video tag.
-        </video>
-        <h2 className="w-fit bg-transparent cursor-pointer scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0 mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0">
-          The Most Awaited Cohort!
-        </h2>
-      </section>
+<section className="w-full p-8 flex flex-col justify-center items-center dark:bg-gray-800">
+  <video width="1250" height="240" controls preload="none" className="rounded-2xl bg-black p-1 mt-[1rem] m-4 drop-shadow-xl" autoPlay muted>
+    <source src="test.mp4" type="video/mp4" />
+    <track
+      src={`https://appx-wsb-gcp.akamai.net.in/teachcode/admin/COURSE/cover/1699610005757WhatsApp-Image-2023-11-10-at-3.16.18-PM.jpeg`}
+      kind="subtitles"
+      srcLang="en"
+      label="English"
+    />
+    Your browser does not support the video tag.
+  </video>
+  <h2 className="w-fit bg-transparent cursor-pointer scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0 mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0">
+    The Most Awaited Cohort!
+  </h2>
+</section>
 
-      <section className="w-full p-8 flex flex-col justify-center items-center bg-gray-100 dark:bg-gray-900">
-        <div className="grid grid-cols-2 w-screen mt-[3rem]">
-          <h1 className="text-[3rem] text-black font-bold dark:text-white col-span-2 text-center">Upcoming Cohorts</h1>
-          <div className="flex w-screen justify-evenly py-8">
-            {courses.map(course => course.status === "Upcoming" ? (<CourseCard course={course} />) : null)}
-          </div>
-        </div>
-      </section>
-      <section className="w-full p-8 flex flex-col justify-center items-center dark:bg-gray-800">
-        <h1 className="text-[3rem] text-black font-bold dark:text-white col-span-2 text-center">Available Cohorts</h1>
-        <div className="flex w-screen justify-evenly py-8">
-          {courses.map(course => course.status !== "Upcoming" ? (<CourseCard course={course} />) : null)}
-        </div>
-      </section>
+<section className="m-2 w-full p-8 flex flex-col justify-center items-center bg-gray-100 dark:bg-gray-900">
+  <div className="grid grid-cols-1 w-full mt-[3rem]">
+    <h1 className="text-[3rem] text-black font-bold dark:text-white col-span-2 text-center">Upcoming Cohorts</h1>
+    <div className="w-full flex flex-col lg:flex-row justify-evenly py-8 gap-2">
+      {courses.map(course => course.status === "Upcoming" ? (<CourseCard course={course} key={course.id} />) : null)}
+    </div>
+  </div>
+</section>
+
+<section className="h-full w-full p-8 flex flex-col justify-center items-center dark:bg-gray-800 pr-2 pl-2">
+  <h1 className="text-[3rem] text-black font-bold dark:text-white col-span-2 text-center">Available Cohorts</h1>
+  <div className="w-full flex flex-col lg:flex-row justify-evenly py-8 gap-2">
+    {courses.map(course => course.status !== "Upcoming" ? (<CourseCard course={course} key={course.id} />) : null)}
+  </div>
+</section>
+
     </div>
   );
 }
