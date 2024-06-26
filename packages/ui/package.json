@@ -17,6 +17,7 @@
     "./input": "./src/components/ui/input.tsx",
     "./label": "./src/components/ui/label.tsx",
     "./dialog": "./src/components/ui/dialog.tsx"
+   
   },
   "license": "MIT",
   "scripts": {
