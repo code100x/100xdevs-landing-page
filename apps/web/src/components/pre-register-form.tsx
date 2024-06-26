@@ -14,6 +14,10 @@ export function PreRegForm() {
   const [isOpen, setIsOpen] = useState(false)
   const [button,setButton]=useState("Register");
   const handleSubmit = async () => {
+    if (!formData.firstName || !formData.lastName || !formData.email) {
+   alert("Fields cannot be empty");
+      return;
+    }
     setButton("Registering...");
     await fetch("/api", {
       method: "POST", body: JSON.stringify(formData)
