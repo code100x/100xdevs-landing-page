@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { Label } from "@repo/ui/label";
 import { Input } from "@repo/ui/input";
-
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@repo/ui/components/ui/dialog";
 import { Button } from "@repo/ui/components/ui/button";
 
@@ -13,24 +12,15 @@ export function PreRegForm() {
     email: ""
   })
   const [isOpen, setIsOpen] = useState(false)
-  const [warning, setWarning] = useState("");
   const [button,setButton]=useState("Register");
-
- const handleSubmit = async () => {
-    if (!formData.email.endsWith("@gmail.com")) {
-      setWarning("Email must end with @gmail.com");//adjust it later as per requirements
-      return;
-    }
-    setWarning(""); 
+  const handleSubmit = async () => {
     setButton("Registering...");
     await fetch("/api", {
-      method: "POST",
-      body: JSON.stringify(formData)
-    });
-    setIsOpen(false);
+      method: "POST", body: JSON.stringify(formData)
+    })
     setButton("Register");
+    setIsOpen(false)
   };
-
   return (
     <Dialog open={isOpen} onOpenChange={() => setIsOpen(prev => !prev)}>
       <DialogTrigger asChild>
@@ -76,7 +66,6 @@ export function PreRegForm() {
             }
           })
         }} />
-          {warning && <p className="text-red-500" key={warning}>{warning}</p>}
         <DialogFooter>
           <Button type="submit" onClick={handleSubmit}>{button}</Button>
         </DialogFooter>
