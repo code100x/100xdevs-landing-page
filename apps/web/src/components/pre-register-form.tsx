@@ -19,6 +19,10 @@ export function PreRegForm() {
       setWarning("Email must end with @gmail.com");//adjust it later as per requirements
       return;
     }
+    if(!formData.firstName && !formData.lastName){
+      setWarning("Fields cannot be empty..fill them");
+      return;
+    }
     setWarning(""); 
     await fetch("/api", {
       method: "POST",
