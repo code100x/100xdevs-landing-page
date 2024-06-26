@@ -12,16 +12,29 @@ export function PreRegForm() {
     email: ""
   })
   const [isOpen, setIsOpen] = useState(false)
-  const handleSubmit = async () => {
+  const [warning, setWarning] = useState("");
+
+ const handleSubmit = async () => {
+    if (!formData.email.endsWith("@gmail.com")) {
+      setWarning("Email must end with @gmail.com");//adjust it later as per requirements
+      return;
+    }
+    if(!formData.firstName && !formData.lastName){
+      setWarning("Fields cannot be empty..fill them");
+      return;
+    }
+    setWarning(""); 
     await fetch("/api", {
-      method: "POST", body: JSON.stringify(formData)
-    })
-    setIsOpen(false)
+      method: "POST",
+      body: JSON.stringify(formData)
+    });
+    setIsOpen(false);
   };
+
   return (
     <Dialog open={isOpen} onOpenChange={() => setIsOpen(prev => !prev)}>
       <DialogTrigger asChild>
-        <Button className="scale-75 text-[2rem] text-black dark:text-white hover:bg-transparent dark:border-white w-fit h-fit cursor-pointer scroll-m-20 pb-2 font-semibold tracking-tight border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[5px_5px_0px_0px_rgba(255,255,255)] px-4 py-2 hover:shadow transition duration-200 bg-transparent flex-shrink-0">Pre Register</Button>
+        <Button className="scale-75 text-[2rem] text-black dark:text-white hover:bg-transparent dark:border-white w-fit h-fit cursor-pointer scroll-m-20 pb-2 font-semibold tracking-tight border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[5px_5px_0px_0px_rgba(255,255,255)] px-4 py-2 hover:shadow transition duration-200 bg-transparent flex-shrink-0 bg-blue-500">Pre Register</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
@@ -63,6 +76,7 @@ export function PreRegForm() {
             }
           })
         }} />
+          {warning && <p className="text-red-500" key={warning}>{warning}</p>}
         <DialogFooter>
           <Button type="submit" onClick={handleSubmit}>Register</Button>
         </DialogFooter>
