@@ -65,24 +65,26 @@ export default function Page(): JSX.Element {
           />
           Your browser does not support the video tag.
         </video>
-        <h2 className="w-fit bg-transparent cursor-pointer scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0 mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0">
+        <h2 className="w-fit bg-transparent dark:text-gray-800 cursor-pointer scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0 mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0">
           The Most Awaited Cohort!
         </h2>
       </section>
 
       <section className="w-full p-8 flex flex-col justify-center items-center bg-gray-100 dark:bg-gray-900">
-        <div className="grid grid-cols-2 w-screen mt-[3rem]">
+        <div className="grid md:grid-cols-2 w-screen mt-[3rem]">
           <h1 className="text-[3rem] text-black font-bold dark:text-white col-span-2 text-center">Upcoming Cohorts</h1>
-          <div className="flex w-screen justify-evenly py-8">
+          <div className="w-screen justify-evenly py-8 md:flex">
             {courses.map(course => course.status === "Upcoming" ? (<CourseCard course={course} />) : null)}
           </div>
         </div>
       </section>
       <section className="w-full p-8 flex flex-col justify-center items-center dark:bg-gray-800">
+      <div className="grid md:grid-cols-2 w-screen mt-[3rem]">
         <h1 className="text-[3rem] text-black font-bold dark:text-white col-span-2 text-center">Available Cohorts</h1>
-        <div className="flex w-screen justify-evenly py-8">
+        <div className="w-screen justify-evenly py-8 md:flex">
           {courses.map(course => course.status !== "Upcoming" ? (<CourseCard course={course} />) : null)}
         </div>
+      </div>
       </section>
     </div>
   );
