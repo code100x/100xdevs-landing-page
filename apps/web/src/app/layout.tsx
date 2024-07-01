@@ -1,20 +1,19 @@
 import { cn } from "@repo/ui/utils";
-import "@repo/ui/globals"
+import "@repo/ui/globals";
 import "./globals.css";
 
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google"
-import { ThemeProvider } from "../components/theme-provider";
+import { Inter as FontSans } from "next/font/google";
 import Navbar from "../components/navbar";
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
-})
+});
 export const metadata: Metadata = {
   title: "100xDevs",
   description: "Be 100x because 10x ain't enough!",
-  icons: ["./favicon.ico"]
+  icons: ["./favicon.ico"],
 };
 
 export default function RootLayout({
@@ -30,15 +29,8 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          {children}
-        </ThemeProvider>
+        <Navbar />
+        {children}
       </body>
     </html>
   );
