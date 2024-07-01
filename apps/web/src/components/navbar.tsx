@@ -1,29 +1,33 @@
-import { Button } from '@repo/ui/components/ui/button'
-import Link from 'next/link'
-import React from 'react'
+"use client";
+import { useRouter } from "next/navigation";
+import { FaYoutube, FaGithub } from "react-icons/fa";
 
 export default function Navbar() {
+  const router = useRouter();
   return (
-    < nav className="fixed top-0 z-50 flex h-12 w-full items-center gap-2 border-b shadow-sm bg-white dark:bg-gray-900" >
-      < div className="mx-auto flex w-full items-center justify-between md:max-w-screen-2xl" >
-        <h2 className='font-bold text-xl'>100xDevs</h2>
-        <div className="flex items-center justify-between scale-50 gap-4">
-          <Button className="hover:bg-transparent dark:border-white w-fit h-fit cursor-pointer scroll-m-20 pb-2 text-3xl font-semibold tracking-tight border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[5px_5px_0px_0px_rgba(255,255,255)] px-4 py-2 hover:shadow transition duration-200 bg-transparent flex-shrink-0">
-            <Link
-              href={'https://github.com/code100x'}
-            >
-              <p className="dark:text-white text-black">Open Source</p>{' '}
-            </Link>
-          </Button>
-          <Button className="hover:bg-transparent dark:border-white w-fit h-fit cursor-pointer scroll-m-20 pb-2 text-3xl font-semibold tracking-tight border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[5px_5px_0px_0px_rgba(255,255,255)] px-4 py-2 hover:shadow transition duration-200 bg-transparent flex-shrink-0">
-            <Link
-              href={'https://www.youtube.com/@harkirat1'}
-            >
-              <p className="dark:text-white text-black">Youtube</p>{' '}
-            </Link>
-          </Button>
+    <div className="fixed top-0 left-0 right-0 z-50 bg-n-8/90 backdrop-blur-sm border-b border-n-6">
+      <div className="container mx-auto flex text-3xl justify-between p-4 items-center">
+        <div
+          className="font-bold hover:cursor-pointer"
+          onClick={() => router.push("/")}
+        >
+          100xdevs
+        </div>
+        <div className="flex space-x-4 hover:cursor-pointer ">
+          <div
+            className="transition-transform duration-300 ease-in-out hover:scale-110"
+            onClick={() => router.push("https://www.youtube.com/@harkirat1")}
+          >
+            <FaYoutube />
+          </div>
+          <div
+            className="transition-transform duration-300 ease-in-out hover:scale-110"
+            onClick={() => router.push("https://github.com/code100x")}
+          >
+            <FaGithub />
+          </div>
         </div>
       </div>
-    </nav >
-  )
+    </div>
+  );
 }
